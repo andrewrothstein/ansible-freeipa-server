@@ -1,2 +1,14 @@
 ---
-# tasks file for freeipa
+- name: resolve platform specific vars
+  include_vars: "{{item}}"
+  with_first_found:
+    - "{{ansible_distribution}}-{{ansible_distribution_release}}.yml"
+    - "{{ansible_distribution}}.yml"
+    - "{{ansible_os_family}}.yml"
+
+- name: install os pkgs
+  become: yes
+  become_user: root
+  with_items: '{{freeipa_server_pkgs}}'
+  package: name={{item}} state=present
+

@@ -1,0 +1,4 @@
+---
+freeipa_server_pkgs:
+  - ipa-server
+  - bind-dyndb-ldap
