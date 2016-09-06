@@ -1,4 +1,6 @@
 ---
 freeipa_server_pkgs:
   - freeipa-server
+  - freeipa-server-dns
   - bind-dyndb-ldap
+  
